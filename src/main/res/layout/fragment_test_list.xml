@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2015, Nordic Semiconductor
+  ~ All rights reserved.
+  ~
+  ~ Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+  ~
+  ~ 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+  ~
+  ~ 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the
+  ~ documentation and/or other materials provided with the distribution.
+  ~
+  ~ 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this
+  ~ software without specific prior written permission.
+  ~
+  ~ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  ~ LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  ~ HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  ~ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+  ~ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+  ~ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  -->
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/treatment_background"
+    android:visibility="visible"
+    tools:context=".test.TestListFragment">
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/dividerColor"
+        android:dividerHeight="1dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@+id/bt_start"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <ImageButton
+        android:id="@+id/bt_start"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="8dp"
+        android:background="#ffffff"
+        android:src="@drawable/play_enable"
+        app:layout_constraintEnd_toStartOf="@+id/bt_pause"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@android:id/list"
+        app:layout_constraintTop_toTopOf="@android:id/list" />
+
+    <ImageButton
+        android:id="@+id/bt_pause"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:background="#ffffff"
+        android:src="@drawable/pause_disable"
+        app:layout_constraintEnd_toStartOf="@+id/bt_stop"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bt_start"
+        app:layout_constraintTop_toTopOf="@+id/bt_start" />
+
+    <ImageButton
+        android:id="@+id/bt_stop"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:background="#ffffff"
+        android:src="@drawable/stop_disable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bt_pause"
+        app:layout_constraintTop_toTopOf="@+id/bt_pause" />
+
+    <TextView
+        android:id="@+id/healingSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="00:00:00"
+        android:textAppearance="@style/TextAppearanceLarge"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="217dp" />
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="하루 한시간 걷기"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="165dp"
+        tools:layout_editor_absoluteY="153dp" />
+
+    <TextView
+        android:id="@+id/tvHealTimeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="치료시간"
+        tools:layout_editor_absoluteX="180dp"
+        tools:layout_editor_absoluteY="169dp" />
+
+    <TextView
+        android:id="@+id/tvCurSpeedLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="현재"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="282dp" />
+
+    <TextView
+        android:id="@+id/tvCurSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="00.0"
+        tools:layout_editor_absoluteX="159dp"
+        tools:layout_editor_absoluteY="301dp" />
+
+    <TextView
+        android:id="@+id/tvCurSpeedUnitLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Km/h"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="317dp" />
+
+    <TextView
+        android:id="@+id/tvAvgSpeedLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="평균"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="276dp" />
+
+    <TextView
+        android:id="@+id/tvAvgSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="00.0"
+        tools:layout_editor_absoluteX="226dp"
+        tools:layout_editor_absoluteY="301dp" />
+
+    <TextView
+        android:id="@+id/tvAvgSpeedUnitLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Km/h"
+        android:textSize="12sp"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="317dp" />
+
+    <TextView
+        android:id="@+id/tvHealDistLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="치료거리"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <TextView
+        android:id="@+id/tvHealDist"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0.0 km"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="224dp" />
+
+    <TextView
+        android:id="@+id/tvCurHeightLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="현재고도"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="276dp" />
+
+    <TextView
+        android:id="@+id/tvCurHeight"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0 m"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="295dp" />
+
+    <TextView
+        android:id="@+id/tvStepValueLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="걸음수"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="350dp" />
+
+    <TextView
+        android:id="@+id/tvSteps"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="368dp" />
+
+    <TextView
+        android:id="@+id/tvLeftSymmetryLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="대칭성 L"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="423dp" />
+
+    <TextView
+        android:id="@+id/tvLeftSymmetry"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0.0 %"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="441dp" />
+
+    <TextView
+        android:id="@+id/tvLeftTimeLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="왼발타임"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="495dp" />
+
+    <TextView
+        android:id="@+id/tvLeftTime"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0 sec"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="513dp" />
+
+    <TextView
+        android:id="@+id/tvStepTimeLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="보폭타임"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="569dp" />
+
+    <TextView
+        android:id="@+id/tvStepTime"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0 sec"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="587dp" />
+
+    <TextView
+        android:id="@+id/tvCalConsumLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="소모열량"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <TextView
+        android:id="@+id/tvCalConsum"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0 kcal"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="224dp" />
+
+    <TextView
+        android:id="@+id/tvPointLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="포인트"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="279dp" />
+
+    <TextView
+        android:id="@+id/tvPoint"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0 P"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="297dp" />
+
+    <TextView
+        android:id="@+id/tvPointDeducLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="차감포인트"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="351dp" />
+
+    <TextView
+        android:id="@+id/tvPointDeduc"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="-0 P"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="369dp" />
+
+    <TextView
+        android:id="@+id/tvRightSymmetryLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="대칭성 R"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="423dp" />
+
+    <TextView
+        android:id="@+id/tvRightSymmetry"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0.0 %"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="441dp" />
+
+    <TextView
+        android:id="@+id/tvRightTimeLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="오른발타임"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="495dp" />
+
+    <TextView
+        android:id="@+id/tvRightTime"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0.0 sec"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="513dp" />
+
+    <TextView
+        android:id="@+id/tvFatigueLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="피로도"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="568dp" />
+
+
+    <TextView
+        android:id="@+id/tvFatigue"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0.0 %"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="586dp" />
+
+
+    <TextView
+        android:id="@+id/tvConPressLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="연속감지"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="732dp" />
+
+    <TextView
+        android:id="@+id/tvConPress"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0.0 sec"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="789dp" />
+
+    <TextView
+        android:id="@+id/tvStrength"
+        android:layout_width="68dp"
+        android:layout_height="27dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="SStrength"
+        tools:layout_editor_absoluteX="259dp"
+        tools:layout_editor_absoluteY="724dp" />
+
+    <ImageView
+        android:id="@+id/leftPressureState"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/myshape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.742" />
+
+    <ImageView
+        android:id="@+id/rightPressureState"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/myshape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.742" />
+
+    <TextView
+        android:id="@+id/tvRightPressure"
+        android:layout_width="65dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="0.0 kg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.694" />
+
+    <TextView
+        android:id="@+id/tvLeftPressure"
+        android:layout_width="65dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="0.0 kg"
+        app:layout_constraintBottom_toTopOf="@+id/tvConPressLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.654"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.693" />
+</android.support.constraint.ConstraintLayout>

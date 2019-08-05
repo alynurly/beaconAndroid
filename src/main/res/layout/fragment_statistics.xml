@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/statistics_background"
+    android:visibility="visible"
+    tools:context=".statistics.StatisticsFragment">
+
+    <Button
+        android:id="@+id/button_0"
+        android:layout_width="75dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:padding="1dp"
+        android:text="1 min"
+        android:textAppearance="@style/TextAppearanceSmall"
+        android:textColor="@color/text_color_primary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <Button
+        android:id="@+id/button_1"
+        android:layout_width="75dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:padding="1dp"
+        android:text="1 time"
+        android:textAppearance="@style/TextAppearanceSmall"
+        android:textColor="@color/text_color_primary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_2"
+        app:layout_constraintStart_toEndOf="@+id/button_0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_2"
+        android:layout_width="75dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:padding="1dp"
+        android:text="1일"
+        android:textAppearance="@style/TextAppearanceSmall"
+        android:textColor="@color/text_color_primary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        />
+
+    <Button
+        android:id="@+id/button_3"
+        android:layout_width="75dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:padding="1dp"
+        android:text="1개월"
+        android:textAppearance="@style/TextAppearanceSmall"
+        android:textColor="@color/text_color_primary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_4"
+        android:layout_width="75dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:padding="1dp"
+        android:text="1년"
+        android:textAppearance="@style/TextAppearanceSmall"
+        android:textColor="@color/text_color_primary"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/targetTime"
+        android:layout_width="233dp"
+        android:layout_height="20dp"
+        android:background="@color/darkGray"
+        android:gravity="center"
+        android:text="0000. 00. 00. (O요일) 00시 00분 "
+        android:textColor="@color/text_color_primary"
+        app:layout_constraintEnd_toStartOf="@+id/btn_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_left"
+        app:layout_constraintTop_toTopOf="@+id/btn_right" />
+
+    <Button
+        android:id="@+id/btn_right"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/play_disable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/targetTime"
+        app:layout_constraintTop_toBottomOf="@+id/button_4" />
+
+    <Button
+        android:id="@+id/btn_left"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:background="@drawable/play_disable_back"
+        app:layout_constraintEnd_toStartOf="@+id/targetTime"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/targetTime" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chart2"
+        android:layout_width="match_parent"
+        android:layout_height="205dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:layout_constraintTop_toBottomOf="@+id/targetTime"
+        tools:layout_editor_absoluteX="52dp" />
+
+    <TextView
+        android:id="@+id/tvStepValueStatLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="걸음수"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="350dp" />
+
+    <TextView
+        android:id="@+id/tvStepValueStat"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="368dp" />
+
+    <TextView
+        android:id="@+id/tvLeftSymmetryStatLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="대칭성 L"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="423dp" />
+
+    <TextView
+        android:id="@+id/tvLeftSymmetryStat"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0.0 %"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="441dp" />
+
+    <TextView
+        android:id="@+id/tvLeftTimeStatLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="왼발타임"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="495dp" />
+
+    <TextView
+        android:id="@+id/tvLeftTimeStat"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0 sec"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="513dp" />
+
+    <TextView
+        android:id="@+id/tvStepTimeStatLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="보폭타임"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="569dp" />
+
+    <TextView
+        android:id="@+id/tvStepTimeStat"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0 sec"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="587dp" />
+
+    <TextView
+        android:id="@+id/tvHealDistStatLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="치료거리"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <TextView
+        android:id="@+id/tvHealDistStat"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0Km"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="224dp" />
+
+    <TextView
+        android:id="@+id/tvPointStatLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="포인트"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="279dp" />
+
+    <TextView
+        android:id="@+id/tvPointStat"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0 P"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="297dp" />
+
+    <TextView
+        android:id="@+id/tvRightSymmetryStatLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="대칭성 R"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="423dp" />
+
+    <TextView
+        android:id="@+id/tvRightSymmetryStat"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0.0 %"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="441dp" />
+
+    <TextView
+        android:id="@+id/tvRightTimeStatLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="오른발타임"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="495dp" />
+
+    <TextView
+        android:id="@+id/tvRightTimeStat"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0 sec"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="513dp" />
+
+    <TextView
+        android:id="@+id/tvFatigueStatLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="피로도"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="568dp" />
+
+
+    <TextView
+        android:id="@+id/tvFatigueStat"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0.0 %"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="586dp" />
+
+
+    <TextView
+        android:id="@+id/tvCalConsumStatLabel"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="소모열량"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <TextView
+        android:id="@+id/tvCalConsumStat"
+        android:layout_width="65dp"
+        android:layout_height="18dp"
+        android:gravity="center"
+        android:text="0 Kcal"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="224dp" />
+
+    <ImageView
+        android:id="@+id/leftPressureStateStat"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/myshape"
+        tools:layout_editor_absoluteX="231dp"
+        tools:layout_editor_absoluteY="577dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/rightPressureStateStat"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/myshape"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="577dp"
+        tools:ignore="MissingConstraints" />
+</android.support.constraint.ConstraintLayout>
